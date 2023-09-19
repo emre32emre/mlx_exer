@@ -6,7 +6,7 @@
 /*   By: mkocabas <mkocabas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 17:05:37 by vparlak           #+#    #+#             */
-/*   Updated: 2023/09/19 15:41:59 by mkocabas         ###   ########.fr       */
+/*   Updated: 2023/09/19 17:50:02 by mkocabas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,11 @@ t_point	ft_rotation_2d(t_point p1, int teta)
 #include <stdio.h>
 void	ft_draw(t_vars *vars)
 {
-	
+	//km
 	t_point	point_1;
 	t_point	point_4;
+	//rpm
+	
 
 	point_1.x = 500;
 	point_1.y = 400;
@@ -46,9 +48,15 @@ void	ft_draw(t_vars *vars)
 		//ft_draw_line(point_1, point_4, vars);
 	point_4.x = point_4.x - point_1.x;
 	point_4.y = point_4.y - point_1.y;
-	point_4 = ft_rotation_2d(point_4, vars->angle / 4);
+	point_4 = ft_rotation_2d(point_4, vars->angle);
 	point_4.x = point_4.x + point_1.x;
 	point_4.y = point_4.y + point_1.y;
+	ft_draw_line(point_1, point_4, vars);
+	point_1.x+=1;
+	point_4.x+=1;
+	ft_draw_line(point_1, point_4, vars);
+	point_1.x+=1;
+	point_4.x+=1;
 	ft_draw_line(point_1, point_4, vars);
 
 }

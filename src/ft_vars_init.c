@@ -6,7 +6,7 @@
 /*   By: mkocabas <mkocabas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 15:18:19 by vparlak           #+#    #+#             */
-/*   Updated: 2023/09/19 15:24:11 by mkocabas         ###   ########.fr       */
+/*   Updated: 2023/09/19 17:05:49 by mkocabas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,18 +35,44 @@ static int	ft_close(int keycode, t_vars *vars)
 		exit(EXIT_SUCCESS);
 	}
 	if (keycode == 13) {
-		write(1,"down",5);
+		//write(1,"down",5);
 		vars->ispress = 1;
 	}
+	if(keycode == 1)
+	{
+		vars->isbrake = 1;
+	}
+	if(keycode == 49)
+	{
+		vars->ishandbrake = 1;
+	}
+	if(keycode == 12)
+	{
+		vars->isGodMode = 1;
+	}
+
 	
 	return (1);
 }
 static int	ft_key_relase(int keycode, t_vars *vars)
 {
 	if (keycode == 13) {
-		write(1,"up",3);
+		//write(1,"up",3);
 		vars->ispress = 0;
 	}
+	if(keycode == 1)
+	{
+		vars->isbrake = 0;
+	}
+	if(keycode == 49)
+	{
+		vars->ishandbrake = 0;
+	}
+	if(keycode == 12)
+	{
+		vars->isGodMode = 0;
+	}
+
 	return (1);
 }
 
@@ -85,4 +111,7 @@ void	ft_vars_init(t_vars	*vars)
 			&vars->bpp, &vars->size_line, &vars->endian);
 	vars->angle = 20;
 	vars->ispress = 0;
+	vars->isbrake = 0;
+	vars->ishandbrake = 0;
+	vars->isGodMode = 0;
 }

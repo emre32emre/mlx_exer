@@ -6,7 +6,7 @@
 /*   By: mkocabas <mkocabas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 14:47:14 by vparlak           #+#    #+#             */
-/*   Updated: 2023/09/19 15:38:16 by mkocabas         ###   ########.fr       */
+/*   Updated: 2023/09/19 17:53:19 by mkocabas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,14 @@ static void	ft_draw_pixel(int x, int y, float brightness, t_vars *vars)
 {
 	int	offset;
 	
-	if(vars->angle / 2 >= 400)
+	if(vars->isGodMode && vars->angle > 240)
+	{
+		offset = y * (vars->size_line) + x * ((vars->bpp) / 8);
+		vars->data_addr[offset] = 0xFF * brightness;
+		vars->data_addr[offset + 1] = 0x1A * brightness;
+		vars->data_addr[offset + 2] = 0x00 * brightness;
+	}
+	else if(vars->angle >= 180)
 	{
 		offset = y * (vars->size_line) + x * ((vars->bpp) / 8);
 		vars->data_addr[offset] = 0x00 * brightness;

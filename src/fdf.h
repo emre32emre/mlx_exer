@@ -6,7 +6,7 @@
 /*   By: mkocabas <mkocabas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 16:48:47 by vparlak           #+#    #+#             */
-/*   Updated: 2023/09/19 15:13:22 by mkocabas         ###   ########.fr       */
+/*   Updated: 2023/09/19 17:00:07 by mkocabas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,11 @@ typedef struct s_vars
 	int		bpp;
 	int		endian;
 	void	*img_ptr;
-	int angle;
+	float angle;
 	int ispress;
+	int isbrake;
+	int ishandbrake;
+	int isGodMode;
 }	t_vars;
 
 char	**ft_split(char const *s, char c);
